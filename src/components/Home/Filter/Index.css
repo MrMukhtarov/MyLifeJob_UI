@@ -1,0 +1,30 @@
+#home_filter{
+    background-color: #FBFBFD;
+    padding: 20px 60px;
+    border: 1px solid #e7edf4;
+}
+.home_filter_select{
+    border-color: #dfdfdf;
+    border-radius: 7px;
+    background-color: #fff;
+    font-weight: 400;
+    color: rgba(0,0,0,.5);
+    font-size: 1rem;
+    padding: 0.5rem 0.5rem;
+    width: 150px;
+}
+.home_filter_select:focus{
+    outline: none;
+}
+.home_filter_search input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.home_filter_search{
+    border: 1px solid #e7edf4;
+    padding: 10px 10px;
+    background-color: white;
+    border-radius: 7px;
+    width: auto;
+}

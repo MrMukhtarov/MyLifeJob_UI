@@ -1,0 +1,82 @@
+#home_advertisment {
+    padding: 20px 60px;
+}
+
+#home_advertisment th {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+}
+
+#home_advertisment thead {
+    border-color: white;
+}
+
+#home_advertisment thead tr th {
+    padding-bottom: 25px;
+}
+
+.home_advertisment_name {
+    font-weight: 500;
+    font-size: 14px !important;
+    line-height: 20px;
+    color: #000;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.home_advertisment_premium {
+    color: #00d153;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: .5rem;
+    line-height: 1rem;
+    padding: 0.1rem 0.2rem;
+    text-transform: uppercase;
+    margin-left: 1rem;
+    pointer-events: none;
+}
+
+.home_advertisment_new {
+    color: #ff8686;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: .5rem;
+    line-height: 1rem;
+    padding: 0.1rem 0.2rem;
+    text-transform: uppercase;
+    margin-left: 1rem;
+    pointer-events: none;
+}
+
+.advertisement-section table .heart-svg path {
+    cursor: pointer;
+    transition: fill .3s ease;
+}
+
+#home_advertisment table .heart-svg:hover path {
+    fill: #ff8686;
+    stroke: none;
+    cursor: pointer;
+}
+
+#home_advertisment table img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.home_advertisment_company span{
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    color: #6f757e;
+}
+.home_advertisment_date span{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: #6f757e;
+}
