@@ -1,0 +1,42 @@
+.contact {
+    padding: 50px 0;
+}
+
+.contact_heading {
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 30px;
+}
+
+.contact_adress h2 {
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.contact_adress span {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.contact_phone_div_box h2 {
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    line-height: 19px;
+}
+.contact_phone_div{
+    border-top: 1px solid #eaeaea;
+    padding: 20px 0;
+}
+.contact_phone_div_box_right span{
+    font-weight: 400;
+    color:rgba(0, 0, 0, 0.7);
+    font-size: 14px;
+    line-height: 24px;
+}

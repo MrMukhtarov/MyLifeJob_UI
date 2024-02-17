@@ -1,0 +1,56 @@
+.wish_empty_heading {
+    border-top: 1px solid #e7edf4;
+    border-bottom: 1px solid #e7edf4;
+    padding: 25px 0;
+    background-color: #FBFBFD;
+}
+
+.wish_empty_heading h1 {
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    line-height: 29px;
+    padding-left: 60px;
+}
+
+.wish_empty_heart_div {
+    background-color: #F9F9F9;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.wish_empty_heart_div svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #ACAEB1;
+    font-size: 25px;
+}
+
+.wish_empty_main h2 {
+    font-weight: 500;
+    color:rgb(0, 0, 0);
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 20px;
+}
+.wish_empty_main a{
+    text-decoration: none;
+    border: 1px solid #0c4dde;
+    color: #0c4dde;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: normal;
+    padding: 5px 20px;
+    margin-top: 20px;
+    border-radius: 3px;
+    transition: .3s all;
+}
+.wish_empty_main a:hover{
+    background-color: #0c4dde;
+    color: white;
+    transition: .3s all;
+}

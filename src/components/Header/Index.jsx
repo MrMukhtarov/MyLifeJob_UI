@@ -87,14 +87,14 @@ const Index = () => {
           </NavLink>
         </div>
         <div className="header_right col-lg-6 d-flex gap-1 align-items-center gap-3 justify-content-end">
-          <NavLink to="/" className="header_right_link">
+          <NavLink to="/about" className="header_right_link">
             Haqqımızda
           </NavLink>
-          <NavLink to="/" className="header_right_link">
+          <NavLink to="/service" className="header_right_link">
             Xidmətlər
           </NavLink>
           <NavLink
-            to="/"
+            to="/contact"
             className={`header_right_box_a ${
               active === 5 ? "header_left_active" : ""
             }`}
@@ -104,7 +104,7 @@ const Index = () => {
           >
             Əlaqə
           </NavLink>
-          <NavLink to="/" className="header_right_box_a">
+          <NavLink to="/wishlist" className="header_right_box_a">
             <FaHeart />
           </NavLink>
           <NavLink to="/" className="header_right_box_a">
