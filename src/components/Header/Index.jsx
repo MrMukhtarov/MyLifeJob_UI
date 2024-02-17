@@ -50,7 +50,7 @@ const Index = () => {
             Elanlar
           </NavLink>
           <NavLink
-            to="/"
+            to="/category"
             className={`header_adv d-flex align-items-center gap-1 ${
               active === "2" ? "header_left_active" : ""
             }`}
@@ -62,7 +62,7 @@ const Index = () => {
             Kateqoriyalar
           </NavLink>
           <NavLink
-            to="/"
+            to="/industry"
             className={`header_adv d-flex align-items-center gap-1 ${
               active === "3" ? "header_left_active" : ""
             }`}
@@ -74,7 +74,7 @@ const Index = () => {
             Sənaye
           </NavLink>
           <NavLink
-            to="/"
+            to="/company"
             className={`header_adv d-flex align-items-center gap-1 ${
               active === "4" ? "header_left_active" : ""
             }`}

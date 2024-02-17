@@ -1,0 +1,31 @@
+.company_box{
+    padding: 30px 60px;
+}
+.company_boxes img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.company_boxes_name{
+    font-weight: 500;
+    color: rgb(0,0,0);
+    font-size: 14px;
+    line-height: 21px;
+}
+.company_boxes_count{
+    font-weight: 400;
+    color: rgb(51,51,51);
+    font-size: 13px;
+    line-height: 21px;
+}
+.company_boxes{
+    border:1px solid #ced4da;
+    border-radius: 12px;
+    padding: 20px;
+    transition: .3s all;
+}
+.company_boxes:hover{
+    border-color: #0c4dde;
+    transition: .3s all;
+    cursor: pointer;
+}

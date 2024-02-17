@@ -1,0 +1,29 @@
+.industry_search{
+    padding: 25px 60px;
+    background-color: #FBFBFD;
+    border-bottom: 1px solid #e7edf4;
+    border-top: 1px solid #e7edf4;
+}
+.industry_search h1{
+    font-weight: 500;
+    color: rgb(0,0,0);
+    font-size: 24px;
+    line-height: 29px;
+}
+.industry_search_right{
+    border:1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #fff;
+    font-weight: 400;
+    color: rgba(0,0,0,.5);
+    padding: 0.3rem 1rem;
+    width: 350px;
+}
+
+.industry_search_right input{
+    border: none;
+    outline: none;    
+}
+.industry_search_right svg{
+    cursor: pointer;
+}

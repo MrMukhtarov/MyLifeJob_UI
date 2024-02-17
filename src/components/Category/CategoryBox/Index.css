@@ -1,0 +1,49 @@
+.category_box{
+    padding: 40px 60px;
+}
+.category_box_boxes_img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: rgba(12,77,222,.05);
+    justify-content: center;
+    position: relative;
+}
+.category_box_boxes img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.category_box_boxes_name{
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    color: #000;
+    transition: .3s all;
+}
+.category_box_boxes_count{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: rgb(111,117,126);
+}
+.category_box_boxes{
+    border: 1px solid #e7edf4;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    height: calc(100% - 2rem);
+    transition: .3s all;
+
+}
+.category_box_boxes:hover .category_box_boxes_name{
+    color: #0c4dde;
+    transition: .3s all;
+}
+.category_box_boxes:hover{
+    border-color: #0c4dde;
+    transition: .3s all;
+    cursor: pointer;
+}
