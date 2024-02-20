@@ -1,23 +1,38 @@
-#home_advertisment {
+.wish_full_heading {
+    border-top: 1px solid #e7edf4;
+    border-bottom: 1px solid #e7edf4;
+    padding: 25px 10px;
+    background-color: #FBFBFD;
+}
+
+.wish_full_heading h1 {
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    line-height: 29px;
+}
+/*  */
+
+.wish_full {
     padding: 20px 60px;
 }
 
-#home_advertisment th {
+.wish_full th {
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
     color: #000000;
 }
 
-#home_advertisment thead {
+.wish_full thead {
     border-color: white;
 }
 
-#home_advertisment thead tr th {
+.wish_full thead tr th {
     padding-bottom: 25px;
 }
 
-.home_advertisment_name {
+.wish_full_name {
     font-weight: 500;
     font-size: 14px !important;
     line-height: 20px;
@@ -26,7 +41,7 @@
     margin-left: 5px;
 }
 
-.home_advertisment_premium {
+.wish_full_premium {
     color: #00d153;
     border: 1px solid currentColor;
     border-radius: 4px;
@@ -39,7 +54,7 @@
     pointer-events: none;
 }
 
-.home_advertisment_new {
+.wish_full_new {
     color: #ff8686;
     border: 1px solid currentColor;
     border-radius: 4px;
@@ -57,34 +72,34 @@
     transition: fill .3s ease;
 }
 
-#home_advertisment table .heart-svg:hover path {
+.wish_full table .heart-svg:hover path {
     fill: #ff8686;
     stroke: none;
     cursor: pointer;
 }
 
-#home_advertisment table img{
+.wish_full table img{
     width: 25px;
     height: 25px;
     border-radius: 50%;
 }
-.home_advertisment_company span{
+.wish_full_company span{
     font-weight: 500;
     font-size: 13px;
     line-height: 20px;
     color: #6f757e;
 }
-.home_advertisment_date span{
+.wish_full_date span{
     font-weight: 400;
     font-size: 13px;
     line-height: 20px;
     color: #6f757e;
 }
-.home_advertisment .table-hover tbody td, .table-hover tbody th{
+.wish_full .table-hover tbody td, .table-hover tbody th{
     transition: 1s all;
 }
-.home_advertisment .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #FAFAFA;
+.wish_full .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #FBFCFC;
     transition: .3s all;
     cursor: pointer;
   }

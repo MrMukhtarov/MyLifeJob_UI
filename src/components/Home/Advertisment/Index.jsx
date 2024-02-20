@@ -5,8 +5,8 @@ import { NavLink } from "react-router-dom";
 const Index = () => {
 
   return (
-    <section id="home_advertisment">
-      <table class="table">
+    <section id="home_advertisment" style={{minHeight:"100vh"}}>
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Elan</th>
