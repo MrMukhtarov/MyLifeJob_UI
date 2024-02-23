@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Index.css";
 import { FaRegEye } from "react-icons/fa6";
 import { CiClock2 } from "react-icons/ci";
@@ -6,8 +6,28 @@ import { FaLocationArrow } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { FaRegFlag } from "react-icons/fa";
 import { FiPrinter } from "react-icons/fi";
+import { IoMdClose } from "react-icons/io";
+import Complain from "../../AdvertismentDetail/Complain/İndex";
 
 const Index = () => {
+  const [seeEmail, setSeeEmail] = useState(false);
+
+  const SeeEmail = () => {
+    setSeeEmail(true);
+  };
+  const seeBtn = () => {
+    setSeeEmail(false);
+  };
+  const CopyEmail = () => {
+    navigator.clipboard.writeText(
+      document.querySelector(".grenn_btn_adv_info_email").textContent
+    );
+    document.getElementById("grenn_btn_adv_info_span").textContent =
+      "E-mail ünvanı kopyalandı";
+    document.getElementById("grenn_btn_adv_info").className =
+      "grenn_btn_adv_info_success";
+  };
+
   return (
     <section className="advertisment_detail_top">
       <div className="advertisment_detail_top_all d-flex flex-column gap-4">
@@ -71,17 +91,44 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div className="advertisment_detail_top_center_right d-flex align-items-center gap-2">
-            <FaLocationArrow />
-            <span>Müraciət et</span>
-          </div>
+          {seeEmail === false ? (
+            <div
+              id="advertisment_detail_top_center_right"
+              onClick={SeeEmail}
+              className="advertisment_detail_top_center_right d-flex align-items-center gap-2"
+            >
+              <FaLocationArrow />
+              <span>Müraciət et</span>
+            </div>
+          ) : (
+            <div className="grenn_btn_adv_div">
+              <div className="grenn_btn_adv_info" id="grenn_btn_adv_info">
+                <span id="grenn_btn_adv_info_span">
+                  Müraciət üçün aşağıdakı email ünvanı <br /> köçürmək lazımdır.
+                </span>
+              </div>
+              <div className="d-flex align-items-center gap-2 grenn_btn_adv">
+                <IoMdClose onClick={seeBtn} />
+                <div className="grenn_btn_adv_hr"></div>
+                <span className="grenn_btn_adv_info_email" onClick={CopyEmail}>
+                  hr@kristalabsheron.az
+                </span>
+              </div>
+            </div>
+          )}
         </div>
         <div className="advertisment_detail_top_bottom d-flex justify-content-between align-items-center">
-          <div className="advertisment_detail_top_bottom_left">
+          <div className="advertisment_detail_top_bottom_left d-flex align-items-center gap-3">
             <NavLink to="/">Digər vakansiyalar</NavLink>
+            <NavLink to="/">Şirkət Haqqında</NavLink>
           </div>
           <div className="advertisment_detail_top_bottom_right d-flex align-items-center gap-3">
-            <div className="advertisment_detail_top_bottom_right_left d-flex align-items-center gap-2">
+            <div
+            style={{cursor:"pointer"}}
+              data-bs-target="#exampleModalToggle"
+              data-bs-toggle="modal"
+              className="advertisment_detail_top_bottom_right_left d-flex align-items-center gap-2"
+            >
               <FaRegFlag />
               <span>Şikayət et</span>
             </div>
@@ -93,13 +140,14 @@ const Index = () => {
                 height: "20px",
               }}
             ></div>
-            <div className="advertisment_detail_top_bottom_right_right d-flex align-items-center gap-2">
+            <div style={{cursor:"pointer"}} onClick={() => window.print()} className="advertisment_detail_top_bottom_right_right d-flex align-items-center gap-2">
               <FiPrinter />
               <span>Çap et</span>
             </div>
           </div>
         </div>
       </div>
+      <Complain />
     </section>
   );
 };

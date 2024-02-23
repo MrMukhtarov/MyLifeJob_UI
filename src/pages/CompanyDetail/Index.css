@@ -1,0 +1,168 @@
+.company_detail{
+    padding: 20px 60px;
+}
+.company_detail .company_detail_left{
+    margin-right: 7rem;
+    border: 1px solid #e7edf4;
+    border-radius: 12px;
+    padding: 2.4rem;
+}
+.company_detail_left_top_left img{
+    width: 80px;
+    border-radius: 10px;
+
+}
+.company_detail_left_top_right h1{
+    font-weight: 500;
+    color:rgb(0, 0, 0);
+    font-size: 20px;
+    line-height: 24px;
+}
+.company_detail_left_top_right a{
+    font-weight: 400;
+    color:rgb(111, 117, 126);
+    font-size: 13px;
+    line-height: 20px;
+    transition: .3s all;
+}
+.company_detail_left_top_right a:hover{
+    text-decoration: none;
+    transition: .3s all;
+    cursor: pointer;
+}
+.company_detail_left_top{
+    border-bottom: 1px solid #e7edf4;
+    padding: 0 0 30px 0;
+}
+.company_detail_left_bottom_content_span1{
+    font-weight: 500;
+    color:rgb(0, 0, 0);
+    font-size: 14px;
+    line-height: 21px;
+}
+.company_detail_left_bottom_content_span2{
+    font-weight: 400;
+    color:rgb(0, 0, 0);
+    font-size: 14px;
+    line-height: 21px;
+}
+.company_detail_tab_btn{
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    line-height: 21px;
+    background-color: none !important;
+    border-radius: 0 !important;
+}
+.company_detail .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    border-bottom: 3px solid #0C4DDE;
+}
+.company_detail .company_info_for_detail h5{
+    font-weight: 500;
+    color:rgb(0, 0, 0);
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.company_detail .company_info_for_detail p{
+    font-weight: 400;
+    color: rgb(51, 51, 51);
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.company_info_for_detail_tab{
+    height: 60vh;
+    overflow: auto;
+    display: inline-block;
+    width: 100%;
+}
+.company_detail th {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.company_detail thead {
+    border-color: white;
+}
+
+.company_detail thead tr th {
+    padding-bottom: 25px;
+}
+
+.company_detail_name {
+    font-weight: 500;
+    font-size: 14px !important;
+    line-height: 20px;
+    color: #000;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.company_detail_premium {
+    color: #00d153;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: .5rem;
+    line-height: 1rem;
+    padding: 0.1rem 0.2rem;
+    text-transform: uppercase;
+    margin-left: 1rem;
+    pointer-events: none;
+}
+
+.company_detail_new {
+    color: #ff8686;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: .5rem;
+    line-height: 1rem;
+    padding: 0.1rem 0.2rem;
+    text-transform: uppercase;
+    margin-left: 1rem;
+    pointer-events: none;
+}
+
+.advertisement-section table .heart-svg path {
+    cursor: pointer;
+    transition: fill .3s ease;
+}
+
+.company_detail table .heart-svg:hover path {
+    fill: #ff8686;
+    stroke: none;
+    cursor: pointer;
+}
+
+.company_detail table img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.company_detail_company span{
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    color: #6f757e;
+}
+.company_detail_date span{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: #6f757e;
+}
+.company_detail .table-hover tbody td, .table-hover tbody th{
+    transition: 1s all;
+}
+.company_detail .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #FAFAFA;
+    transition: .3s all;
+    cursor: pointer;
+  }
