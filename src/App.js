@@ -10,10 +10,13 @@ import Contact from './pages/Contact/Index.jsx'
 import WishList from './pages/WishList/Index.jsx'
 import AdvertismentDetail from './pages/AdvertismentDetail/Index.jsx'
 import CompanyDetail from './pages/CompanyDetail/Index.jsx'
+import Error from './pages/Error/Index.jsx'
 
 function App() {
+  
   return (
-    <BrowserRouter>
+    <div>
+      <BrowserRouter>
       <Routes>
         <Route path="/" element={<Client />}>
           <Route index element={<Home />} />
@@ -26,9 +29,11 @@ function App() {
           <Route path="/wishlist" element={<WishList />} />
           <Route path="/advertisment" element={<AdvertismentDetail />} />
           <Route path="/companys" element={<CompanyDetail />} />
+          <Route path="*" element={<Error/>} />
         </Route>
       </Routes>
     </BrowserRouter>
+    </div>
   );
 }
 

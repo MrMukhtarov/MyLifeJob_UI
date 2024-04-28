@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { RiAdvertisementFill } from "react-icons/ri";
 import { MdCategory } from "react-icons/md";
 import { BiSolidCategoryAlt } from "react-icons/bi";
-import { FaIndustry } from "react-icons/fa6";
+import { FaIndustry } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { RiMailAddFill } from "react-icons/ri";
 import { FaMoon } from "react-icons/fa";
@@ -22,6 +22,7 @@ const Index = () => {
       setActive(event.currentTarget.id);
     }
   };
+
 
   return (
     <header className="py-lg-3 px-lg-5 px-md-1 py-md-1 px-0 py-0">

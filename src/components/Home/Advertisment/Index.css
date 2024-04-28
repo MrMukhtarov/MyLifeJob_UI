@@ -74,6 +74,9 @@
     line-height: 20px;
     color: #6f757e;
 }
+.home_advertisment_company_img{
+    margin-right: 8px;
+}
 .home_advertisment_date span{
     font-weight: 400;
     font-size: 13px;

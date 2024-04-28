@@ -16,8 +16,8 @@ const Index = () => {
 
         <div className="service_box_premium mb-4 d-flex align-items-center justify-content-between">
           <div className="service_box_premium_left">
-            <h2>Premium</h2>
-            <p>
+            <h2 className="service_box_premium_left_h2">Premium</h2>
+            <p className="service_box_premium_left_p">
               Premium iş elanı saytda olan digər elanlardan xüsusi dizayn və
               Premium qeydi ilə fərqlənərək <br /> saytın yuxarı hissəsində, ilk
               onluqda 1 gün ərzində qalacaq

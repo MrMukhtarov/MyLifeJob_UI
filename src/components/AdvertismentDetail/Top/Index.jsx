@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Index.css";
 import { FaRegEye } from "react-icons/fa6";
 import { CiClock2 } from "react-icons/ci";
@@ -124,7 +124,7 @@ const Index = () => {
           </div>
           <div className="advertisment_detail_top_bottom_right d-flex align-items-center gap-3">
             <div
-            style={{cursor:"pointer"}}
+              style={{ cursor: "pointer" }}
               data-bs-target="#exampleModalToggle"
               data-bs-toggle="modal"
               className="advertisment_detail_top_bottom_right_left d-flex align-items-center gap-2"
@@ -140,7 +140,11 @@ const Index = () => {
                 height: "20px",
               }}
             ></div>
-            <div style={{cursor:"pointer"}} onClick={() => window.print()} className="advertisment_detail_top_bottom_right_right d-flex align-items-center gap-2">
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => window.print()}
+              className="advertisment_detail_top_bottom_right_right d-flex align-items-center gap-2"
+            >
               <FiPrinter />
               <span>Çap et</span>
             </div>

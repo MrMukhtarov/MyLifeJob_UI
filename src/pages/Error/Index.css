@@ -1,0 +1,38 @@
+.error_page h1{
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    line-height: 48px;
+    margin-bottom: 25px;
+}
+.error_page p{
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 30px;
+}
+.error_page{
+    min-height: 70vh;
+    padding: 20px 0;
+}
+.error_page img{
+    width: 350px;
+}
+.error_page a{
+    font-weight: 500;
+    color: white;
+    font-size: 14px;
+    line-height: normal;
+    border: 1px solid rgb(12, 77, 222);
+    border-radius: 4px;
+    background-color: rgb(12, 77, 222);
+    text-decoration: none;
+    padding: 10px 40px;
+    transition: .3s all;
+    }
+.error_page a:hover{
+    background-color: white;
+    color: rgb(12, 77, 222);
+    transition: .3s all;
+}
