@@ -1,5 +1,6 @@
 .category_box{
     padding: 40px 60px;
+    min-height: 63vh;
 }
 .category_box_boxes_img{
     width: 2.5rem;
@@ -14,6 +15,9 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
 }
 .category_box_boxes_name{
     font-size: 14px;

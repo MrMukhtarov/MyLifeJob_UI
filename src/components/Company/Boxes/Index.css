@@ -1,5 +1,7 @@
 .company_box{
     padding: 30px 60px;
+    min-height: 63vh;
+
 }
 .company_boxes img{
     width: 60px;
