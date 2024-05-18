@@ -1,18 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Index.css";
+import MyHomeSearchContext from "../../Contexts/HomeSearchContext";
 
 const Index = () => {
   const [industry, setIndustry] = useState([]);
+  const [search, setSearch] = useState(false);
+
+  const { state } = useContext(MyHomeSearchContext);
 
   async function GetData() {
     const req = await fetch("https://localhost:7298/api/Industryies/Get");
     const data = await req.json();
-    setIndustry(data);
+    if (state) {
+      setSearch(true);
+    }
+    if (search === true) {
+      setIndustry(
+        data.filter((a) => a.name.toUpperCase().includes(state.toUpperCase()))
+      );
+    } else {
+      setIndustry(data);
+    }
+    if (state === "" || state === false) {
+      setIndustry(data);
+    }
   }
 
   useEffect(() => {
     GetData();
-  }, []);
+  }, [state]);
 
   console.log(industry);
 

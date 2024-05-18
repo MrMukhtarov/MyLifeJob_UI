@@ -1,21 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Index.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import MyHomeSearchContext from "../../Contexts/HomeSearchContext";
 
 const Index = () => {
   const [adver, setAdver] = useState([]);
+  const [search, setSearch] = useState(false);
+
+  const { state } = useContext(MyHomeSearchContext);
 
   useEffect(() => {
     axios
       .get("https://localhost:7298/api/Advertisments/Get")
       .then((res) => {
-        setAdver(res.data);
+        if (state) {
+          setSearch(true);
+        }
+        if (search === true) {
+          setAdver(
+            res.data.filter((a) =>
+              a.title.toUpperCase().includes(state.toUpperCase())
+            )
+          );
+        } else {
+          setAdver(res.data);
+        }
+        if (state === "" || state === false) {
+          setAdver(res.data);
+        }
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [state, search]);
 
   const monhths = [
     "Yanvar",
@@ -31,7 +49,6 @@ const Index = () => {
     "Noyabr",
     "Dekabr",
   ];
-
 
   return (
     <section id="home_advertisment" style={{ minHeight: "100vh" }}>
@@ -76,7 +93,7 @@ const Index = () => {
                 <td>
                   <div className="home_advertisment_company d-flex align-items-center gap-1">
                     <img
-                    className="home_advertisment_company_img"
+                      className="home_advertisment_company_img"
                       src={a.company.logo}
                       alt=""
                     />

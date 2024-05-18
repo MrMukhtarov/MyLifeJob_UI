@@ -1,18 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Index.css";
+import MyHomeSearchContext from "../../Contexts/HomeSearchContext";
 
 const Index = () => {
   const [company, setCompany] = useState([]);
+  const [search, setSearch] = useState(false);
+
+  const { state } = useContext(MyHomeSearchContext);
 
   async function GetData() {
     var req = await fetch("https://localhost:7298/api/Companys/Get");
     var data = await req.json();
-    setCompany(data);
+    if (state) {
+      setSearch(true);
+    }
+    if (search === true) {
+      setCompany(
+        data.filter((a) => a.name.toUpperCase().includes(state.toUpperCase()))
+      );
+    } else {
+      setCompany(data);
+    }
+    if (state === "" || state === false) {
+      setCompany(data);
+    }
   }
 
   useEffect(() => {
     GetData();
-  }, []);
+  }, [state]);
 
   return (
     <section className="company_box">
