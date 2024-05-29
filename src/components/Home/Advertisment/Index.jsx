@@ -3,12 +3,15 @@ import "./Index.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import MyHomeSearchContext from "../../Contexts/HomeSearchContext";
+import HomeDateFilterContext from "../../Contexts/HomeDateFilterContext";
 
 const Index = () => {
   const [adver, setAdver] = useState([]);
   const [search, setSearch] = useState(false);
 
   const { state } = useContext(MyHomeSearchContext);
+  const { date } = useContext(HomeDateFilterContext);
+
 
   useEffect(() => {
     axios
