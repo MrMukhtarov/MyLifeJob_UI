@@ -6,7 +6,9 @@ import HomeDateFilterContext from "../../Contexts/HomeDateFilterContext";
 
 const Index = () => {
   const { setState } = useContext(MyHomeSearchContext);
-  const { setDate } = useContext(HomeDateFilterContext);
+  const { setDate, setCity, setSort, setSalary } = useContext(
+    HomeDateFilterContext
+  );
 
   const Search = (e) => {
     setState(e.target.value);
@@ -14,14 +16,28 @@ const Index = () => {
 
   const FilterDate = (e) => {
     setDate(e);
-  }
+  };
+  const FilterSort = (e) => {
+    setSort(e);
+  };
+  const FilterCity = (e) => {
+    setCity(e);
+  };
+  const FilterSalary = (e) => {
+    setSalary(e);
+  };
 
   return (
     <section id="home_filter">
       <div className="home_filter_all d-flex gap-4 justify-content-between">
         <div className="home_filter_selects d-flex gap-4 col-lg-9">
-          <select onChange={e => FilterDate(e.target.value)} className="home_filter_select" name="" id="">
-            <option disabled selected defaultValue={true} value="Elanlar">
+          <select
+            onChange={(e) => FilterDate(e.target.value)}
+            className="home_filter_select"
+            name=""
+            id=""
+          >
+            <option selected defaultValue={true} value="">
               Yerləşdirilib
             </option>
             <option value="1">1 gün</option>
@@ -31,30 +47,44 @@ const Index = () => {
             <option value="14">2 həftə</option>
           </select>
 
-          <select className="home_filter_select" name="" id="">
-            <option disabled selected defaultValue={true} value="Elanlar">
+          <select
+            onChange={(e) => FilterSort(e.target.value)}
+            className="home_filter_select"
+            name=""
+            id=""
+          >
+            <option selected defaultValue={true} value="">
               Sıralama
             </option>
-            <option value="asdasd">Maaş üzrə</option>
-            <option value="asdasd">Vəzifə adı A-Z</option>
-            <option value="asdasd">Şirkət adı A-Z</option>
-            <option value="asdasd">Ən çox baxış sayı</option>
-            <option value="asdasd">Ən populyar kateqoriya üzrə</option>
+            <option value="1">Maaş üzrə</option>
+            <option value="2">Vəzifə adı A-Z</option>
+            <option value="3">Şirkət adı A-Z</option>
+            <option value="4">Ən çox baxış sayı</option>
           </select>
 
-          <select className="home_filter_select" name="" id="">
-            <option disabled selected defaultValue={true} value="Elanlar">
+          <select
+            onChange={(e) => FilterSalary(e.target.value)}
+            className="home_filter_select"
+            name=""
+            id=""
+          >
+            <option selected defaultValue={true} value="">
               Maaş
             </option>
-            <option value="asdasd">0-500</option>
-            <option value="asdasd">500-1000</option>
-            <option value="asdasd">1000-2000</option>
-            <option value="asdasd">2000-5000</option>
-            <option value="asdasd">5000+</option>
+            <option value="1">0-500</option>
+            <option value="2">500-1000</option>
+            <option value="3">1000-2000</option>
+            <option value="4">2000-5000</option>
+            <option value="5">5000+</option>
           </select>
 
-          <select className="home_filter_select" name="" id="">
-            <option disabled selected defaultValue={true} value="Elanlar">
+          <select
+            onChange={(e) => FilterCity(e.target.value)}
+            className="home_filter_select"
+            name=""
+            id=""
+          >
+            <option  selected defaultValue={true} value="">
               Ərazi
             </option>
             <option value="Ağcabədi">Ağcabədi</option>

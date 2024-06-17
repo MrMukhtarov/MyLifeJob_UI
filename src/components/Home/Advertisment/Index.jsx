@@ -10,12 +10,25 @@ const Index = () => {
   const [search, setSearch] = useState(false);
 
   const { state } = useContext(MyHomeSearchContext);
+  
   const { date } = useContext(HomeDateFilterContext);
-
+  const { city } = useContext(HomeDateFilterContext);
+  const { sort } = useContext(HomeDateFilterContext);
+  const { salary } = useContext(HomeDateFilterContext);
 
   useEffect(() => {
     axios
-      .get("https://localhost:7298/api/Advertisments/Get")
+      .get(
+        `https://localhost:7298/api/Advertisments/Filtered?Date=${date}&Sort=${sort}&SortSalary=${salary}&City=${city}`
+      )
+      .then((res) => {
+        setAdver(res.data);
+      });
+  }, [date, sort, salary, city]);
+
+  useEffect(() => {
+    axios
+      .get("https://localhost:7298/api/Advertisments/GetAllAccept")
       .then((res) => {
         if (state) {
           setSearch(true);
