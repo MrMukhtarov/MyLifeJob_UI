@@ -100,7 +100,7 @@ const Index = () => {
                         d="M12 21.35l-1.45-1.32C5.4 14.25 2 11.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C14.09 3.81 15.76 3 17.5 3 20.58 3 23 5.42 23 8.5c0 2.78-3.4 5.75-8.55 11.54L12 21.35z"
                       />
                     </svg>
-                    <NavLink className="home_advertisment_name" to="/">
+                    <NavLink className="home_advertisment_name" to={`advertisment/${a.id}`}>
                       <p className="mb-0">{a.title}</p>
                     </NavLink>
                     <span className="home_advertisment_premium">PREMIUM</span>

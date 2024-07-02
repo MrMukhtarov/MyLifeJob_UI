@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Index.css";
 import { FaTag } from "react-icons/fa6";
 import { CiWallet } from "react-icons/ci";
 import { CiHome } from "react-icons/ci";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import { IoMdBook } from "react-icons/io";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import AdvertismentDetailContext from "../../Contexts/AdvertismentDetailContenxt";
 
 const Index = () => {
+  const [adver, setAdver] = useState("");
+  const { id } = useParams("id");
+  const {setAdverDetail} = useContext(AdvertismentDetailContext)
+
+  useEffect(() => {
+    GetData(id);
+  }, [id]);
+
+  async function GetData(id) {
+    var req = await axios.get(
+      `https://localhost:7298/api/Advertisments/GetByClient/${id}`
+    );
+    var data = await req.data;
+    setAdver(data);
+    setAdverDetail(data);
+  }
+
   return (
     <section className="advertisment_bottom">
       <div className="advertisment_bottom_all d-flex gap-4">
@@ -23,62 +43,13 @@ const Index = () => {
             </span>
           </div>
           <div className="advertisment_bottom_left_detail_content d-flex align-items-center gap-1 flex-wrap">
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-2">
-              <FaTag />
-              <span>OOP</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Docker</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Javascript</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Rest</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Rest</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Rest</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Rest</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Rest</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Rest</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Rest</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Rest</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Rest</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Rest</span>
-            </div>
-            <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-1">
-              <FaTag />
-              <span>Rest</span>
-            </div>
+            {adver.advertismentAbilities &&
+              adver.advertismentAbilities.map((c) => (
+                <div className="advertisment_bottom_left_detail_content_box d-flex align-items-center gap-2">
+                  <FaTag />
+                  <span>{c.ability.name}</span>
+                </div>
+              ))}
           </div>
           {/*  */}
           <h2 className="advertisment_bottom_left_detail_h mt-3">
@@ -86,91 +57,32 @@ const Index = () => {
           </h2>
           <div className="advertisment_bottom_left_explain">
             <ul>
-              <li>
-                <span>yeni veb-layihələr üzərində işləməsi;</span>
-              </li>
-              <li>
-                <span>mövcud veb-layihələrin inkişaf etdirilməsi;</span>
-              </li>
-              <li>
-                <span>komanda üzvü kimi veb-layihələr üzərində işləməsi;</span>
-              </li>
-              <li>
-                <span>
-                  layihələri planlaması, inkişaf etdirməsi, deploy etməsi və
-                  baxımı;
-                </span>
-              </li>
-              <li>
-                <span>
-                  məhsulun biznes məntiqinin və back-end sisteminin dizayn
-                  olunması və proqramlaşdırılması;
-                </span>
-              </li>
-              <li>
-                <span>
-                  front-end proqramçısı ilə sıx əməkdaşlıq edərək funksional,
-                  effektli və tam tələblərə cavab verən API-ların hazırlanması;
-                </span>
-              </li>
-              <li>
-                <span>
-                  mənbə kodlarını analiz etmək və ehtiyaca uyğun dəyişiklikləri
-                  icra etməsi;
-                </span>
-              </li>
-              <li>
-                <span>
-                  unit və inteqrasiya testlərinin yazılması və gündəlik
-                  tapşırıqlar üçün avtomatik alətlərin hazırlanması;
-                </span>
-              </li>
+              {adver.texts &&
+                adver.texts.map((a) => (
+                  <li>
+                    <span>{a.content};</span>
+                  </li>
+                ))}
             </ul>
           </div>
           {/*  */}
           <h2 className="advertisment_bottom_left_detail_h">Xüsusi tələblər</h2>
           <div className="advertisment_bottom_left_explain">
             <ul>
-              <li>
-                <span>OOP prinsiplərini aktiv istifadə etmə təcrübəsi;</span>
-              </li>
-              <li>
-                <span>yeni texnologiyalari sürətlə öyrənmə həvəsi;</span>
-              </li>
-              <li>
-                <span>
-                  Php, Laravel framework, (Codeigniter bilmək üstünlükdür),
-                  REST, MVC, Design patterns, MySQL, SQL, git.
-                </span>
-              </li>
-              <li>
-                <span>Docker, Kubernetes mühitlərində işləmə təcrübəsi;</span>
-              </li>
-              <li>
-                <span>
-                  proyektlərin yaradılması və komandaların formalaşmasında
-                  təşəbbüskarlıq göstərmə təcrübəsi;
-                </span>
-              </li>
-              <li>
-                <span>agile metodologiyaları biliyi;</span>
-              </li>
-              <li>
-                <span>CI/CD proseslərinin qurulması təcrübəsi;</span>
-              </li>
-              <li>
-                <span>C#, ASP.Net Core bilikləri;</span>
-              </li>
+              {adver.requirements &&
+                adver.requirements.map((a) => (
+                  <li>
+                    <span>{a.content};</span>
+                  </li>
+                ))}
             </ul>
           </div>
           <div className="advertisment_bottom_left_contact">
             <p>
               Vakansiya ilə bağlı müraciət üçün CV formasını e-mail vasitəsilə
               mövzu yerinə{" "}
-              <span style={{ fontWeight: "bold" }}>
-                “Texniki ofis mühəndisi”
-              </span>{" "}
-              üzrə yazmaqla elektron ünvanına göndərməyiniz xahiş olunur. Yalnız
+              <span style={{ fontWeight: "bold" }}>“{adver.title}”</span> üzrə
+              yazmaqla elektron ünvanına göndərməyiniz xahiş olunur. Yalnız
               vakansiya tələblərinə uyğun namizədlərlə əlaqə saxlanılacaqdır.
             </p>
           </div>
@@ -189,7 +101,11 @@ const Index = () => {
               </div>
               <div className="advertisment_bottom_right_boxes_box_right">
                 <h5>Əmək haqqı</h5>
-                <span>Razılaşma yolu ilə</span>
+                {adver.salary !== null ? (
+                  <span>{adver.salary} AZN</span>
+                ) : (
+                  <span>Razılaşma yolu ilə</span>
+                )}
               </div>
             </div>
             <div className="advertisment_bottom_right_boxes_box_hr"></div>
@@ -200,7 +116,7 @@ const Index = () => {
               </div>
               <div className="advertisment_bottom_right_boxes_box_right">
                 <h5>Kateqoriya</h5>
-                <span>Development (Proqramlaşdırma)</span>
+                <span>{adver.category}</span>
               </div>
             </div>
             <div className="advertisment_bottom_right_boxes_box_hr"></div>
@@ -211,7 +127,7 @@ const Index = () => {
               </div>
               <div className="advertisment_bottom_right_boxes_box_right">
                 <h5>İş stajı(il)</h5>
-                <span>3-5</span>
+                <span>{adver.experience}</span>
               </div>
             </div>
             <div className="advertisment_bottom_right_boxes_box_hr"></div>
@@ -222,7 +138,9 @@ const Index = () => {
               </div>
               <div className="advertisment_bottom_right_boxes_box_right">
                 <h5>Tələb olunan təhsil</h5>
-                <span>Ali təhsil</span>
+                <span>{
+                  adver.education === "Middle" ? "Orta Təhsil" : adver.education === "Bachelor" ? "Bakalavr" : "Magistr"
+                  }</span>
               </div>
             </div>
             <div className="advertisment_bottom_right_boxes_box_hr"></div>
@@ -231,17 +149,29 @@ const Index = () => {
           <div className="advertisment_bottom_right_statistic d-flex flex-column">
             <div className="advertisment_bottom_right_statistic_top d-flex justify-content-between align-items-center">
               <div className="advertisment_bottom_right_statistic_top_left col-lg-6 d-flex flex-column text-start">
-                <span className="advertisment_bottom_right_statistic_span1">Günlük</span>
-                <span className="advertisment_bottom_right_statistic_span2">116</span>
+                <span className="advertisment_bottom_right_statistic_span1">
+                  Günlük
+                </span>
+                <span className="advertisment_bottom_right_statistic_span2">
+                  {adver.adverCount && adver.adverCount.day}
+                </span>
               </div>
               <div className="advertisment_bottom_right_statistic_top_right col-lg-6 d-flex flex-column text-start">
-                <span className="advertisment_bottom_right_statistic_span1">Həftəlik</span>
-                <span className="advertisment_bottom_right_statistic_span2">245</span>
+                <span className="advertisment_bottom_right_statistic_span1">
+                  Həftəlik
+                </span>
+                <span className="advertisment_bottom_right_statistic_span2">
+                {adver.adverCount && adver.adverCount.week}
+                </span>
               </div>
             </div>
             <div className="advertisment_bottom_right_statistic_bottom col-lg-12 d-flex flex-column text-start">
-              <span className="advertisment_bottom_right_statistic_span1">Aylıq</span>
-              <span className="advertisment_bottom_right_statistic_span2">1639</span>
+              <span className="advertisment_bottom_right_statistic_span1">
+                Aylıq
+              </span>
+              <span className="advertisment_bottom_right_statistic_span2">
+              {adver.adverCount && adver.adverCount.month}
+              </span>
             </div>
           </div>
         </div>

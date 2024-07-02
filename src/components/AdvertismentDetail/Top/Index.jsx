@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Index.css";
 import { FaRegEye } from "react-icons/fa6";
 import { CiClock2 } from "react-icons/ci";
@@ -8,9 +8,12 @@ import { FaRegFlag } from "react-icons/fa";
 import { FiPrinter } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import Complain from "../../AdvertismentDetail/Complain/İndex";
+import AdvertismentDetailContext from "../../Contexts/AdvertismentDetailContenxt";
 
 const Index = () => {
   const [seeEmail, setSeeEmail] = useState(false);
+  const {adverDetail} = useContext(AdvertismentDetailContext);
+
 
   const SeeEmail = () => {
     setSeeEmail(true);
@@ -28,21 +31,42 @@ const Index = () => {
       "grenn_btn_adv_info_success";
   };
 
+  const monhths = [
+    "Yanvar",
+    "Fevral",
+    "Mart",
+    "Aprel",
+    "May",
+    "İyun",
+    "İyul",
+    "Avqust",
+    "Sentyabr",
+    "Oktyabr",
+    "Noyabr",
+    "Dekabr",
+  ];
+
+  const day = adverDetail && adverDetail.endTime && adverDetail.endTime.substring(8, 10);
+  const monthNumber = parseInt(adverDetail && adverDetail.endTime && adverDetail.endTime.substring(5, 7), 10);
+  const monthIndex = monthNumber - 1;
+  const monthName = monhths[monthIndex];
+  const year = adverDetail && adverDetail.endTime && adverDetail.endTime.substring(0, 4);
+
   return (
     <section className="advertisment_detail_top">
       <div className="advertisment_detail_top_all d-flex flex-column gap-4">
         <div className="advertisment_detail_top_top d-flex justify-content-between align-items-center">
           <div className="advertisment_detail_top_top_left d-flex align-items-center gap-2">
             <img
-              src="https://storage.jobsearch.az/storage/pages/2227/xalqbank.svg"
+              src={adverDetail.company && adverDetail.company.logo && adverDetail.company.logo}
               alt=""
             />
-            <span>Xalq Bank</span>
+            <span>{adverDetail.company && adverDetail.company.name}</span>
           </div>
           <div className="advertisment_detail_top_top_right d-flex align-items-center gap-3">
             <div className="d-flex align-items-center gap-1 advertisment_detail_eye">
               <FaRegEye />
-              <span>448</span>
+              <span>{adverDetail.viewCount}</span>
             </div>
             <div
               style={{
@@ -76,18 +100,19 @@ const Index = () => {
           <div className="advertisment_detail_top_center_left">
             <div className="advertisment_detail_top_center_left_top d-flex align-items-center">
               <h1>
-                İnsan Resursları və İşlər İdarəsinin Katibliyinin
-                Katib-Referenti
+                {adverDetail.title}
               </h1>
               <span>YENI</span>
             </div>
             <div className="advertisment_detail_top_center_left_bottom d-flex align-items-center gap-3">
               <div className="advertisment_detail_top_center_left_bottom_left d-flex align-items-center gap-2 justify-content-center">
                 <CiClock2 />
-                <span>Deadline 19 Mart 2024</span>
+                <span>Deadline 
+                {" "} {day} {monthName} {year}
+                      </span>
               </div>
               <div className="advertisment_detail_top_center_left_bottom_right">
-                <span>Inzibati, Biznes və İdarəetmə</span>
+                <span>{adverDetail.category}</span>
               </div>
             </div>
           </div>
@@ -111,7 +136,7 @@ const Index = () => {
                 <IoMdClose onClick={seeBtn} />
                 <div className="grenn_btn_adv_hr"></div>
                 <span className="grenn_btn_adv_info_email" onClick={CopyEmail}>
-                  hr@kristalabsheron.az
+                  {adverDetail.company.email}
                 </span>
               </div>
             </div>

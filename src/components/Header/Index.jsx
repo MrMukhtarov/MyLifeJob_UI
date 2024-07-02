@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Index.css";
 import { NavLink } from "react-router-dom";
 import { RiAdvertisementFill } from "react-icons/ri";
@@ -12,6 +12,7 @@ import { IoIosMenu } from "react-icons/io";
 
 const Index = () => {
   const [active, setActive] = useState("");
+  const [isDark, setIsDark] = useState(false);
 
   const handleClick = (event) => {
     if (event.currentTarget.id === "img-link") {
@@ -23,6 +24,44 @@ const Index = () => {
     }
   };
 
+  const applyDarkMode = () => {
+    const styleElement = document.createElement("style");
+    styleElement.innerHTML = `
+      * {
+        background-color: #333 !important;
+        color: white !important;
+      }
+    `;
+    document.head.appendChild(styleElement);
+  };
+
+  const removeDarkMode = () => {
+    const styleElements = document.head.querySelectorAll("style");
+    styleElements.forEach((styleElement) => {
+      if (styleElement.innerHTML.includes("background-color: #333")) {
+        document.head.removeChild(styleElement);
+      }
+    });
+  };
+
+  const toggleDark = () => {
+    if (!isDark) {
+      applyDarkMode();
+      localStorage.setItem("isDark", "true");
+    } else {
+      removeDarkMode();
+      localStorage.setItem("isDark", "false");
+    }
+    setIsDark(!isDark);
+  };
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("isDark");
+    if (savedTheme === "true") {
+      applyDarkMode();
+      setIsDark(true);
+    }
+  }, []);
 
   return (
     <header className="py-lg-3 px-lg-5 px-md-1 py-md-1 px-0 py-0">
@@ -126,11 +165,15 @@ const Index = () => {
             <option value="en">EN</option>
             <option value="ru">RU</option>
           </select>
-          <div className="header_right_box_a">
-            <FaMoon />
+
+          <div className="header_right_box_a" id="dark">
+            <NavLink onClick={toggleDark}>
+              <FaMoon className="right-icons" />
+            </NavLink>
           </div>
+
           <div className="header_burger_menu">
-          <IoIosMenu />
+            <IoIosMenu />
           </div>
         </div>
       </div>
